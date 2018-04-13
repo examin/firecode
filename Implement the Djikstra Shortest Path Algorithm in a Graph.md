@@ -19,6 +19,7 @@ public static List<Vertex> getShortestPath(Vertex source, Vertex target) {
             Vertex v = e.target;
             if(v.minDistance > (cur.minDistance+e.weight))
             {
+                q.remove(v); //important, just in case v is alreay in the q
                 v.previous = cur;
                 v.minDistance = cur.minDistance+e.weight;
                 q.add(v);
@@ -73,7 +74,7 @@ public static List<Vertex> getShortestPath(Vertex source, Vertex target) {
             return Integer.compare(a.start, b.start);
         }
         
-    } 
+        } 
 new PriorityQueue<>(capacity, new InterComp()); or move the InterComp definition inside. new Comparator<Vertex>{public int compare()}
 
 2. Implement a compareTo(Vertex, v) in the Vertex class
@@ -81,5 +82,6 @@ new PriorityQueue<>(capacity, new InterComp()); or move the InterComp definition
 3. https://www.youtube.com/watch?v=pVfj6mxhdMw
 
 4. no need to check if v has been visited, as if v is visited, v.minDistance has already reached minimum
+5. q.remove(v); //important, just in case v is alreay in the q
 
 
