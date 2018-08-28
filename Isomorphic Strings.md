@@ -76,3 +76,4 @@ if(input1.length() != input2.length()) return false;
         }
         return true;
     }
+ This solution is wrong. Check out leetcode: https://leetcode.com/problems/isomorphic-strings/description/   
